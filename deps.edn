@@ -1,0 +1,20 @@
+{
+ :paths   ["src/clj" "src/cljc" "src/cljs" "resources"]
+ :deps    {
+           com.cleancoders.c3kit/apron  {:mvn/version "2.1.4"}
+           org.clojure/clojure          {:mvn/version "1.11.1"}
+           }
+ :aliases {
+           :test     {:extra-deps  {
+                                    clj-commons/secretary          {:mvn/version "1.2.4"}
+                                    com.cleancoders.c3kit/scaffold {:git/url "git@github.com:cleancoders/c3kit-scaffold.git" :git/sha "173ee966970a742e08c6718c58b5d8eed934a1e5"}
+                                    org.clojure/clojurescript      {:mvn/version "1.11.60"}
+                                    speclj/speclj                  {:mvn/version "3.4.5"}
+                                    venantius/accountant           {:mvn/version "0.2.5"}
+                                    }
+                      :extra-paths ["dev" "spec/clj" "spec/cljc" "spec/cljs"]}
+           :repl     {:main-opts ["-e" "(require,'acme.repl)" "-e" "(in-ns,'acme.repl)" "--repl"] :extra-paths ["dev"]}
+           :run      {:main-opts ["-m" "acme.main"]}
+           :spec     {:main-opts ["-m" "speclj.main" "-c"]}
+           }
+ }
